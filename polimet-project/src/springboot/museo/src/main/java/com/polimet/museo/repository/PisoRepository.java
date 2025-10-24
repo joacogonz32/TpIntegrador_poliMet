@@ -1,4 +1,6 @@
 package com.polimet.museo.repository;
 
-public class PisoRepository {
-}
+import com.polimet.museo.model.Piso;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PisoRepository extends JpaRepository<Piso, Long> { }

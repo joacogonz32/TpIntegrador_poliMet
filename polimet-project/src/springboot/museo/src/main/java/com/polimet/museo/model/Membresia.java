@@ -1,16 +1,24 @@
 package com.polimet.museo.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+import java.util.List;
 
-@Data
 @Entity
-@Table(name = "membresias")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="membresias")
 public class Membresia {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idMembresia;
+    private Long idMembresia;
 
     private String tipo;
+
     private String descripcion;
+
+    @OneToMany(mappedBy = "membresia")
+    private List<Usuario> usuarios;
 }

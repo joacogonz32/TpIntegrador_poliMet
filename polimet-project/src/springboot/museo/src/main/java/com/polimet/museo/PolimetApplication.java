@@ -7,5 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PolimetApplication {
     public static void main(String[] args) {
         SpringApplication.run(PolimetApplication.class, args);
+        System.out.println("PoliMet API se ha iniciado.");
     }
 }
