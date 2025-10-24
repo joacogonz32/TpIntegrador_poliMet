@@ -59,4 +59,7 @@ public class Obra {
         this.visitas = visitas;
         this.tickets = tickets;
     }
+
+    public Obra(Long idObra, Object o, Object o1, Object o2, Object o3, Object o4, Object o5, Object o6, Object o7) {
+    }
 }

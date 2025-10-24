@@ -8,17 +8,21 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/obras")
 public class ObraController {
-    private final ObraService service;
 
-    public ObraController(ObraService service) {
-        this.service = service;
+    private final ObraService obraService;
+
+    public ObraController(ObraService obraService){
+        this.obraService = obraService;
     }
 
     @GetMapping
-    public List<Obra> filtrar(
-            @RequestParam(defaultValue = "") String epoca,
-            @RequestParam(defaultValue = "") String nombre
-    ) {
-        return service.filtrar(epoca, nombre);
+    public List<Obra> listar(@RequestParam(required = false) String nombre){
+        if(nombre != null) return obraService.filtrarPorNombre(nombre);
+        return obraService.listarObras();
+    }
+
+    @GetMapping("/{id}")
+    public Obra obtener(@PathVariable Long id){
+        return obraService.obtenerPorId(id);
     }
 }
